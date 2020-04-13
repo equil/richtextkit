@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class RichTextContainer : NSTextContainer {
+public final class RichTextContainer : NSTextContainer {
     
     
     

@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-class RichTextView : UITextView {
+public class RichTextView : UITextView {
     
-    override var keyCommands: [UIKeyCommand]? {
+    public override var keyCommands: [UIKeyCommand]? {
         let nest = UIKeyCommand(input: "\t", modifierFlags: [], action: #selector(nesting), discoverabilityTitle: "Nesting list")
         let flatten = UIKeyCommand(input: "\t", modifierFlags: [.alternate], action: #selector(flattening), discoverabilityTitle: "Flattening list")
         return [nest, flatten]
     }
     
-    override var selectedTextRange: UITextRange? {
+    public override var selectedTextRange: UITextRange? {
         get {
             return super.selectedTextRange
         }
@@ -92,7 +92,7 @@ class RichTextView : UITextView {
         richStorage.editListLevel(ranges: ranges.storageRanges, direction: .flattening)
     }
     
-    init(frame: CGRect = .zero, textContainer: RichTextContainer = RichTextContainer()) {
+    public init(frame: CGRect = .zero, textContainer: RichTextContainer = RichTextContainer()) {
         let storage = RichTextStorage()
         let manager = RichTextLayoutManager()
         storage.addLayoutManager(manager)
@@ -102,16 +102,16 @@ class RichTextView : UITextView {
         manager.view = self
     }
     
-    override func textStyling(at position: UITextPosition, in direction: UITextStorageDirection) -> [NSAttributedString.Key : Any]? {
+    public override func textStyling(at position: UITextPosition, in direction: UITextStorageDirection) -> [NSAttributedString.Key : Any]? {
         let result = super.textStyling(at: position, in: direction)
         return result
     }
     
-    override func insertText(_ text: String) {
+    public override func insertText(_ text: String) {
         super.insertText(text)
     }
     
-    override func deleteBackward() {
+    public override func deleteBackward() {
         super.deleteBackward()
     }
     
