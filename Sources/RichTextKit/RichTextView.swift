@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class RichTextView : UITextView {
+class RichTextView : UITextView {
     
     override var keyCommands: [UIKeyCommand]? {
         let nest = UIKeyCommand(input: "\t", modifierFlags: [], action: #selector(nesting), discoverabilityTitle: "Nesting list")
